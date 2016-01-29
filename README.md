@@ -109,12 +109,12 @@ import org.apache.spark.sql.SQLContext
 import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType};
 
 val sqlContext = new SQLContext(sc)
-val customSchema = StructType(
-    StructField("year", IntegerType, true),
-    StructField("make", StringType, true),
-    StructField("model", StringType, true),
-    StructField("comment", StringType, true),
-    StructField("blank", StringType, true))
+val customSchema = StructType(Seq(
+    StructField("user_id", IntegerType, true), 
+    StructField("item_id", IntegerType, true), 
+    StructField("artist_id", IntegerType, true), 
+    StructField("scrobble_time", 
+    StringType, true)))
 
 val df = sqlContext.read
     .format("com.databricks.spark.csv")
